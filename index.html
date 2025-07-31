@@ -3,25 +3,60 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Video Background Tailwind</title>
+  <title>Proyectos de la Seccion 3 de JavaScript</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- tsParticles para animación -->
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
 </head>
-<body class="relative min-h-screen overflow-hidden text-white">
+<body class="relative min-h-screen overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-blue-600 text-white">
 
-  <!-- Contenedor del video -->
-  <video autoplay muted loop
-    class="absolute inset-0 w-full h-full object-cover z-[-10]">
-    <source src="./resourses/Fondo tecnológico en 4K - E-Digital (1080p, h264).mp4" type="video/mp4" />
-  </video>
-
-  <!-- Gradiente encima del video -->
-  <div class="absolute inset-0 bg-gradient-to-br from-black/60 via-purple-800/40 to-transparent z-[-5]">
-  </div>
+  <!-- Contenedor de partículas -->
+  <div id="tsparticles" class="absolute inset-0 z-0"></div>
 
   <!-- Contenido principal -->
-  <div class="relative z-10 flex flex-col items-center justify-center h-screen text-center px-4 sm:px-6 md:px-8">
-    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Proyectos de la Seccion 3 de Javascript</h1>
+  <div class="relative z-10 flex flex-col items-center justify-start h-screen text-center px-4 pt-20">
+    <h1 class="text-4xl font-bold mb-4">Proyectos de la Seccion 3 de JavaScript</h1>
+    
   </div>
+
+  <!-- Inicialización de partículas -->
+  <script>
+    tsParticles.load("tsparticles", {
+      fullScreen: { enable: false },
+      background: { color: "transparent" },
+      particles: {
+        number: { value: 40 },
+        color: { value: "#60A5FA" }, // azul claro
+        shape: { type: "circle" },
+        opacity: {
+          value: 0.5,
+          random: true,
+          anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false }
+        },
+        size: {
+          value: 4,
+          random: true,
+          anim: { enable: true, speed: 4, size_min: 0.5, sync: false }
+        },
+        move: {
+          enable: true,
+          speed: 1,
+          direction: "none",
+          outModes: { default: "bounce" }
+        }
+      },
+      interactivity: {
+        events: {
+          onHover: { enable: true, mode: "repulse" },
+          onClick: { enable: true, mode: "push" }
+        },
+        modes: {
+          repulse: { distance: 100 },
+          push: { quantity: 4 }
+        }
+      }
+    });
+  </script>
 
 </body>
 </html>
